@@ -11,26 +11,28 @@
          name,
          email, 
          phonenumber,
-     }
-         localStorage.setItem(myObj.email , JSON.stringify(myObj));
-         showNewUserOnScreen(myObj)
+     } 
+    localStorage.setItem(myObj.email , JSON.stringify(myObj));
+    showNewUserOnScreen(myObj)
      
      }
     
  window.addEventListener("DOMContentLoaded", () => {
-     const localStorageObj = localStorage;
-     const localStorageKeys = Object.keys(localStorageObj)
+      const localStorageObj = localStorage;
+      const localStorageKeys = Object.keys(localStorageObj)
  
-     for(var i=0; i<localStorageKeys.length; i++){
-         const key = localStorageKeys[i];
-         const userDetailsString= localStorageObj[key];
-         const userDetailsObj = JSON.parse(userDetailsString);
-         showNewUserOnScreen(userDetailsObj)
-     }
+      for(var i=0; i<localStorageKeys.length; i++){
+          const key = localStorageKeys[i];
+          const userDetailsString= localStorageObj[key];
+          const userDetailsObj = JSON.parse(userDetailsString);
+          showNewUserOnScreen(userDetailsObj)
+      }
  })
  
  
  function showNewUserOnScreen(user){
+
+
      document.getElementById('email').value= "";
      document.getElementById('username').value= "";
      document.getElementById('phonenumber').value= "";
@@ -47,7 +49,7 @@
  }
  
  //edit user 
- function editUserDetails(emailId , name , phonenumber){
+ function editUserDetails(emailId , name , phonenumber ){
      document.getElementById('email').value= emailId;
      document.getElementById('username').value= name;
      document.getElementById('phonenumber').value= phonenumber;
@@ -57,9 +59,9 @@
  
  //delete user 
  function deleteUser(emailId){
-     console.log(emailId);
-     localStorage.removeItem(emailId);
-     removeUserFromScreen(emailId);
+      console.log(emailId);
+      localStorage.removeItem(emailId);
+      removeUserFromScreen(emailId);
  }
  function removeUserFromScreen(emailId){
      const parentNode=document.getElementById('listOfUsers');
